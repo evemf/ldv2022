@@ -35,7 +35,7 @@
                     <span>&nbsp;</span>
                     <span>&nbsp;</span>
                 </div>
-                <team-component :equip="equip" v-for="(equip, index) in teams" :key="equip.id" @editar-equip="editarEquip(equip)" @borrar-equip="borrarEquip(equip.id)"></team-component>
+                <team-component :equip="equip" v-for="(equip, index) in teams" :key="equip.id" @editar-equip="editarEquip(equip)"></team-component>
             </div>
         </div>
     </div>
@@ -56,10 +56,11 @@
             }
         },
         methods: {
-            editarEquip(equip) {
+            editarEquip(equipId) {
                 console.log("editando equipo");
+                console.log("equip Id ", equipId);
                 this.editMode = true;
-                let selectedTeam = this.teams.indexOf(equip, 0);
+                let selectedTeam = this.teams.indexOf(equipId, 0);
                 this.newTeam = this.teams[selectedTeam];
             },
             onClickEvent() {
