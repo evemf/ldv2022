@@ -1,0 +1,57 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.logo {
+    width: 200px;
+}
+
+
+.teams-table_headers {
+    display: grid;
+    grid-template-columns:1fr 2fr 1fr 1fr 1fr 1fr;
+    background-color: greenyellow;
+    font-weight: bold;
+    & > * {
+        padding: 5px;
+    }
+}
+
+.team {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+
+    & > * {
+        border: 1px solid #ccc;
+        padding: 5px;
+        word-wrap: anywhere;
+    }
+}
+
+.players-table_headers {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: greenyellow;
+    font-weight: bold;
+
+    & > * {
+        padding: 5px;
+    }
+}
+
+.player {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    & > * {
+        border: 1px solid #ccc;
+        padding: 5px;
+        word-wrap: anywhere;
+    }
+}
