@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
     export default {
         data() {
             return {
@@ -16,8 +18,9 @@
         methods: {
             afegirEquip(equipVal) {
                 console.log(equipVal);
-                equipVal.id = this.equipos.length;
-                this.equipos.push(equipVal);
+              //  equipVal.id = this.equipos.length;
+             //   this.equipos.push(equipVal);
+                axios.post('http://ldv2022.test:8181/api/team', equipVal);
             },
             afegirJugador(jugadorVal) {
                 this.jugadores.push(jugadorVal);

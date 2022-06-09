@@ -4,19 +4,19 @@
             <form class="row align-items-end" action="">
                  <div class="form-group col-md-3">
                     <label for="equip_id">Equip Id</label>
-                    <input type="text" class="form-control" name="equip_id" v-model="newTeam.id">
+                    <input type="text" class="form-control" name="equip_id" v-model="formTeam.id">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="equip_nom">Nom</label>
-                    <input type="text" class="form-control" name="equip_nom" v-model="newTeam.nom">
+                    <input type="text" class="form-control" name="equip_nom" v-model="formTeam.nom">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="equip_seu">Seu</label>
-                    <input type="text" class="form-control" name="equip_seu" v-model="newTeam.seu">
+                    <input type="text" class="form-control" name="equip_seu" v-model="formTeam.seu">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="equip_capita">Capità</label>
-                    <input type="text" class="form-control" name="equip_capita" v-model="newTeam.capita">
+                    <input type="text" class="form-control" name="equip_capita" v-model="formTeam.capita">
                 </div>
                 <div class="col-md-3">
                     <button v-if="editMode == false" type="submit" class="btn btn-primary" v-on:click.prevent="onClickEvent()">Afegir equip</button>
@@ -35,7 +35,7 @@
                     <span>&nbsp;</span>
                     <span>&nbsp;</span>
                 </div>
-                <team-component :equip="equip" v-for="(equip, index) in teams" :key="equip.id" @editar-equip="editarEquip(equip)"></team-component>
+                <team-component :equip="equip" v-for="(equip, index) in teams" :key="equip.id" @editar-equip="editarEquip($event)" @borrar-equip="borrarEquip($event)"></team-component>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
          data() {
             return {
                 editMode: false,
-                newTeam: {
+                formTeam: {
                     id: '',
                     nom: '',
                     seu: '',
@@ -56,16 +56,14 @@
             }
         },
         methods: {
-            editarEquip(equipId) {
-                console.log("editando equipo");
-                console.log("equip Id ", equipId);
+            editarEquip(id) {
                 this.editMode = true;
-                let selectedTeam = this.teams.indexOf(equipId, 0);
-                this.newTeam = this.teams[selectedTeam];
+                let selectedTeam = this.teams.find(team => team.id == id);
+                this.formTeam = selectedTeam;
             },
             onClickEvent() {
-                this.$emit('afegir-equip', this.newTeam);
-                this.newTeam = {
+                this.$emit('afegir-equip', this.formTeam);
+                this.formTeam = {
                     id: "",
                     nom: "",
                     seu: "",
@@ -74,13 +72,16 @@
             },
             updateEquip() {
                 this.editMode = false;
-                console.log(this);
-                this.newTeam = {
+                this.formTeam = {
                     id: "",
                     nom: "",
                     seu: "",
                     capita: ""
                 };
+            },
+            borrarEquip(equipId) {
+                const equipInd = this.teams.findIndex(equip => equip.id == equipId);
+                this.teams.splice(equipInd, 1);
             }
         }
     }
