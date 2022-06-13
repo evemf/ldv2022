@@ -10,10 +10,10 @@ class TeamCapitan extends Model
     use HasFactory;
 
     public function capita() {
-        return $this->belongsTo(Player::class, 'players_categoria_id_foreign', 'id');
+        return $this->belongsTo(Player::class, 'capita_id', 'id');
     }
 
     public function equip() {
-        return $this->belongsTo(Team::class, 'players_equip_id_foreign', 'id');
+        return $this->belongsTo(Team::class, 'equip_id', 'id');
     }
 }
