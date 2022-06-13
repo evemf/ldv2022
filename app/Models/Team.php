@@ -9,11 +9,4 @@ class Team extends Model
 {
     use HasFactory;
 
-    public function players() {
-        return $this->hasMany(Player::class, 'equip_id');
-    }
-
-    public function capita() {
-        return $this->hasOne(Player::class, 'capita_id');
-    }
 }

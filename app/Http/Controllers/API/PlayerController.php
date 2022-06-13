@@ -20,6 +20,7 @@ class PlayerController extends Controller
         $player = new Player();
         $player->nom = $request->nom;
         $player->cognoms = $request->cognoms;
+        $player->ciutat = $request->ciutat;
         $player->tel = $request->tel;
         $player->email = $request->email;
         $player->equip_id = $request->equip_id;
@@ -42,6 +43,7 @@ class PlayerController extends Controller
         $player->cognoms = $request->cognoms;
         $player->tel = $request->tel;
         $player->email = $request->email;
+        $player->ciutat = $request->ciutat;
         $player->equip_id = $request->equip_id;
         $player->categoria_id = $request->categoria_id;
         $player->save();
@@ -49,7 +51,7 @@ class PlayerController extends Controller
 
     public function destroy(Player $player)
     {
-       // $player = Player::find($id);
+        $player = Player::find($player);
         $player->delete();
     }
 }

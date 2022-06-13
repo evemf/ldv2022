@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('team', App\Http\Controllers\API\TeamController::class);
 
 Route::apiResource('player', App\Http\Controllers\API\PlayerController::class);
+
+Route::apiResource('category', App\Http\Controllers\API\CategoryController::class);
+
+Route::apiResource('teamCapitan', App\Http\Controllers\API\TeamCapitanController::class);

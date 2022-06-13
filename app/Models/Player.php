@@ -10,10 +10,10 @@ class Player extends Model
     use HasFactory;
 
     public function team() {
-       return $this->belongsTo(Team::class, 'equip_id');
+       return $this->hasOne(Team::class, 'equip_id', 'id');
     }
 
     public function category() {
-        return $this->hasOne(Category::class, 'categoria_id');
+        return $this->hasOne(Category::class, 'categoria_id', 'id');
     }
 }

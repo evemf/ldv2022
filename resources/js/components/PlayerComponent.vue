@@ -2,6 +2,7 @@
     <div class="player">
         <span>{{ jugador.nom }}</span>
         <span>{{ jugador.cognoms }}</span>
+        <span>{{ jugador.ciutat }}</span>
         <span>{{ jugador.cat }}</span>
         <span>{{ jugador.equip }}</span>
         <span>{{ jugador.tel }}</span>

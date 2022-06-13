@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function player() {
-        return $this->belongsTo(Category::class, 'categoria_id');
+    public function players() {
+        return $this->hasMany(Player::class);
     }
 }

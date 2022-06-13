@@ -11312,7 +11312,7 @@ textarea.form-control-lg {
 
 .players-table_headers {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   background-color: greenyellow;
   font-weight: bold;
 }
@@ -11322,7 +11322,7 @@ textarea.form-control-lg {
 
 .player {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 }
 .player > * {
   border: 1px solid #ccc;

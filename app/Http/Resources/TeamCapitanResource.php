@@ -4,15 +4,14 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TeamResource extends JsonResource
+class TeamCapitanResource extends JsonResource
 {
     public function toArray($request)
     {
         return [
             'id'=>$this->id,
-            'nom'=>$this->nom,
-            'seu'=>$this->seu,
-            'ciutat'=>$this->ciutat
+            'equip_id'=>new TeamResource($this->id),
+            'capita_id'=>new PlayerResource($this->id)
         ];
     }
 }

@@ -1,26 +1,30 @@
 <template>
     <div class="card col-md-12 mb-3">
         <div class="card-body">
-            <form class="row align-items-end" action="">
-                 <div class="form-group col-md-3">
-                    <label for="equip_id">Equip Id</label>
-                    <input type="text" class="form-control" name="equip_id" v-model="formTeam.id">
+            <form action="">
+                <div class="row align-items-end">
+                    <div class="form-group col-md-3">
+                        <label for="equip_nom">Nom</label>
+                        <input type="text" class="form-control" name="equip_nom" v-model="formTeam.nom">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="equip_seu">Seu</label>
+                        <input type="text" class="form-control" name="equip_seu" v-model="formTeam.seu">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="equip_capita">Capità</label>
+                        <input type="text" class="form-control" name="equip_capita" v-model="formTeam.capita">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="equip_ciutat">Ciutat</label>
+                        <input type="text" class="form-control" name="equip_ciutat" v-model="formTeam.ciutat">
+                    </div>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="equip_nom">Nom</label>
-                    <input type="text" class="form-control" name="equip_nom" v-model="formTeam.nom">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="equip_seu">Seu</label>
-                    <input type="text" class="form-control" name="equip_seu" v-model="formTeam.seu">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="equip_capita">Capità</label>
-                    <input type="text" class="form-control" name="equip_capita" v-model="formTeam.capita">
-                </div>
-                <div class="col-md-3">
-                    <button v-if="editMode == false" type="submit" class="btn btn-primary" v-on:click.prevent="onClickEvent()">Afegir equip</button>
-                     <button v-if="editMode == true" type="submit" class="btn btn-primary" v-on:click.prevent="updateEquip()">Guardar equip</button>
+                <div class="row align-items-end">
+                    <div class="col-md-3">
+                        <button v-if="editMode == false" type="submit" class="btn btn-primary mt-3" v-on:click.prevent="onClickEvent()">Afegir equip</button>
+                        <button v-if="editMode == true" type="submit" class="btn btn-primary mt-3" v-on:click.prevent="updateEquip()">Guardar equip</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -28,10 +32,10 @@
         <div class="card-body">
             <div class="teams-table">
                 <div class="teams-table_headers">
-                    <span>Equip ID</span>
                     <span>Nom</span>
                     <span>Seu</span>
                     <span>Capità</span>
+                    <span>Ciutat</span>
                     <span>&nbsp;</span>
                     <span>&nbsp;</span>
                 </div>
@@ -51,6 +55,7 @@
                     id: '',
                     nom: '',
                     seu: '',
+                    ciutat: '',
                     capita: ''
                 }
             }
@@ -67,6 +72,7 @@
                     id: "",
                     nom: "",
                     seu: "",
+                    ciutat: "",
                     capita: ""
                 };
             },
@@ -76,6 +82,7 @@
                     id: "",
                     nom: "",
                     seu: "",
+                    ciutat: "",
                     capita: ""
                 };
             },

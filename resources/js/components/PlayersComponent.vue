@@ -12,15 +12,25 @@
                         <input type="text" class="form-control" name="jugador_cognoms" v-model="newPlayer.cognoms">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="jugador_cat">Categoria</label>
-                        <input type="text" class="form-control" name="jugador_cat" v-model="newPlayer.cat">
+                        <label for="jugador_ciutat">Ciutat</label>
+                        <input type="text" class="form-control" name="jugador_ciutat" v-model="newPlayer.ciutat">
                     </div>
                 </div>
                 <div class="row align-items-end">
+                    <div class="form-group col-md-4">
+                        <label for="jugador_cat">Categoria</label>
+                        <input type="text" class="form-control" name="jugador_cat" v-model="newPlayer.cat">
+                    </div>
+                    <div class="form-group col-md-4">   
+                        <label for="jugador_equip">Equip</label>
+                        <input type="text" class="form-control" name="jugador_equip" v-model="newPlayer.tel">
+                    </div>
                     <div class="form-group col-md-4">   
                         <label for="jugador_telf">Telèfon</label>
                         <input type="text" class="form-control" name="jugador_telf" v-model="newPlayer.tel">
                     </div> 
+                </div>
+                <div class="row align-items-end">
                     <div class="form-group col-md-4">
                         <label for="jugador_email">Email</label>
                         <input type="text" class="form-control" name="jugador_email" v-model="newPlayer.email">
@@ -37,7 +47,9 @@
                 <div class="players-table_headers">
                     <span>Nom</span>
                     <span>Cognoms</span>
+                    <span>Ciutat</span>
                     <span>Categoria</span>
+                    <span>Equip</span>
                     <span>Telèfon</span>
                     <span>Email</span>
                     <span>&nbsp;</span>
@@ -58,7 +70,9 @@
                     id: '',
                     nom: '',
                     cognoms: '',
+                    ciutat: '',
                     cat: '',
+                    equip: '',
                     tel: '',
                     email: ''
                 }]
