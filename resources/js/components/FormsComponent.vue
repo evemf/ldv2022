@@ -1,7 +1,9 @@
 <template v-html="formsHTML">
     <div class="forms">
-        <teams-component :teams="equipos" @afegir-equip="afegirEquip($event)"></teams-component>
-        <players-component :players="jugadores" @afegir-jugador="afegirJugador($event)"></players-component>
+        <teams-form-component @afegir-equip="afegirEquip($event)"></teams-form-component>
+        <teams-list-component v-if="equipos" :teams="equipos"></teams-list-component>
+        <players-form-component @afegir-jugador="afegirJugador($event)"></players-form-component>
+        <players-list-component :players="jugadores"></players-list-component>
     </div>
 </template>
 
@@ -17,14 +19,30 @@ import axios from 'axios';
         },
         methods: {
             afegirEquip(equipVal) {
-                console.log(equipVal);
-              //  equipVal.id = this.equipos.length;
-             //   this.equipos.push(equipVal);
-                axios.post('http://ldv2022.test:8181/api/team', equipVal);
+                console.log("eEquipVal n afegir equip ", equipVal);
+                axios.post('http://127.0.0.1:8000/api/team', equipVal)
+                .then(resp => {
+                    console.log("this equipos ", this.equipos);
+                    equipVal.id = resp.data;
+                    this.equipos.push(equipVal);
+                }
+                ).catch();
             },
             afegirJugador(jugadorVal) {
                 this.jugadores.push(jugadorVal);
+            },
+            getEquips() {
+                axios.get('http://127.0.0.1:8000/api/team').then(resp => {
+                    console.log("en getEquips ", resp);
+
+                    resp.data.forEach(team => {
+                        this.equipos.push(team);
+                    });
+               });
             }
+        },
+        created() {
+            this.getEquips();
         }
     }
 </script>

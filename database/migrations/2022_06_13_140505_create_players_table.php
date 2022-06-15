@@ -14,21 +14,20 @@ class CreatePlayersTable extends Migration
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
-            $table->id()->unsigned()->unique();
+            $table->id();
             $table->string('nom');
             $table->string('cognoms');
             $table->string('tel');
             $table->string('email')->unique();
             $table->string('ciutat');
-            $table->smallInteger('equip_id');
-            $table->smallInteger('categoria_id');
-        });
-
-        
-        Schema::table('players', function($table) {
+            $table->unsignedBigInteger('equip_id');
+            $table->unsignedBigInteger('categoria_id');
             $table->foreign('equip_id')->references('id')->on('teams');
             $table->foreign('categoria_id')->references('id')->on('categories');
         });
+
+
+
     }
 
     /**

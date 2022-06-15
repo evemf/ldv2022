@@ -21,8 +21,11 @@ class TeamController extends Controller
         $team = new Team();
         $team->nom = $request->nom;
         $team->seu = $request->seu;
+        $team->capita = $request->capita;
         $team->ciutat = $request->ciutat;
         $team->save();
+
+        return $team->id;
     }
 
     public function show($id)
@@ -36,11 +39,12 @@ class TeamController extends Controller
         $team = Team::find($id);
         $team->nom = $request->nom;
         $team->seu = $request->seu;
+        $team->capita = $request->capita;
         $team->ciutat = $request->ciutat;
         $team->save();
     }
 
-  
+
     public function destroy($id)
     {
         $team = Team::find($id);

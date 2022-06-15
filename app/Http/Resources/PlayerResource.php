@@ -16,7 +16,7 @@ class PlayerResource extends JsonResource
             'cognoms' => $this->cognoms,
             'tel' => $this->tel,
             'email' => $this->email,
-            'ciutat' => $this->email,
+            'ciutat' => $this->ciutat,
             'equip' => $this->whenLoaded('teams'),
             'categoria' => $this->whenLoaded('categories')
         ];
